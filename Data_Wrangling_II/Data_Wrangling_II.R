@@ -37,12 +37,60 @@ grep('Hong-Kong',data$name,fixed=T)
 
 #--------------------------------------------------------------------------------------------
 #Regular Expressions.
+#Special text string for describing a SEARCH PATTERN. 
 #When are useful? -> Supose we wnted all of the countries which had a hyphen(-) in their name. 
+#Example: In Spam Filters
+
+#[[:alpha:]] -> All alphabetic. 
+#[[:digit:]] -> Digits 0123456789
+#[[:alnum:]] -> All alphabetic and digits
+#[[:lower:]] -> Lower case alphabetic
+#[[:upper:]] -> Upper case alphabetic
+
+first_names<-c('Alex','randle?','Joseph','Michael?','david','Charlie')
+
+#Matches any pattern that has a single alphabetic character
+grep('[[:alpha:]]',first_names)
+#Meta Character ^ defines what the first character in the pattern must be. 
+
+grep('^[[:lower:]]',first_names)
+
+explicit_Words<-c('v1agra','vi@gra','viagra')
+grep('[[:alnum:]]+',explicit_Words)
+
+#Returns correctly the index for 'viagra in explicit_Words '
+which(explicit_words=='viagra')
+
+grep('^[a-z]+[1-@][a-z]',explicit_words)
+
+#The regular expressions [a-zA-Z0-9] and [[:alnum:]] are synonymus
+
+#Following regex match the first names which a question mark after it.
+first_names
+grep('^[[:alpha:]]+\\?',first_names)
+#How many country names have two hyphens?
+grep('[[:alpha:]]+\\-+[[:alpha:]]+\\-',data$name)
+#--------------------------------------------------------------------------------------------
 
 
 
 #--------------------------------------------------------------------------------------------
+#Creating Variables Syntax. 
 
+#Suppose in the flag dataset you wanted to identify the flags which have the following characteristics:
+  
+#Now create an indicator variable for flags which have the following characteristics and name the column 'AM20CHR'
+#landmass = 1 or 2
+#population > 20
+#religion = 1
 
-#--------------------------------------------------------------------------------------------
-#Indicator Variabes. 
+#An indicator variable is one that is either 0 or 1. It is also more commonly known as a dummy variable.
+#First we create the new column 'AF50CR' in the data and put all zeroes
+
+data$AM20CHR<-0
+
+identified <- which(data$landmass ==1 & data$population > 20 & data$religion == 1)
+data$AM20CHR[identified]=1
+
+unos<-which(data$AM20CHR==1)
+sum(data[unos,]$population)
