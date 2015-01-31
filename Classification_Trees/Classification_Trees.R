@@ -108,7 +108,21 @@ text(prune_model_two)
 #Or
 #Do you want to have a more complex tree to avoid missclassification error?
 
+#Important-> The predictive accuracy of your model depends most on the explanatory variables you choose for prediction and 
+#the cross-validated results on your training data.
 
+#Predict on pruned tree. 
 
+#Pruned Model #2 
+predictions<-predict(prune_model_two,newdata=testdata,type='class')
+predictions<-as.vector(predictions)
 
+test_responses<-data[151:194,6]
+sum(predictions==test_responses)
 
+#Pruned Model #1 
+predictions1<-predict(prune_model,newdata=testdata,type='class')
+predictions1<-as.vector(predictions1)
+
+test_responses<-data[151:194,6]
+sum(predictions1==test_responses)
