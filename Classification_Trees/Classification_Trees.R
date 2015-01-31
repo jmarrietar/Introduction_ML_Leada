@@ -81,6 +81,34 @@ sum(cv_predictions_two==subset_religions2)
 #Complexity Parameter#
 ######################
 
+#Cp-> panalizing cost for a larger tree. 
+#Idea_ There exist a pruned tree which minimizes the tradeoff between classification error and tree complexity. 
+#You must build a model tree and the prune it selecting the appropiate complexity parameter. 
+#Doing the above should give the lowest cross-validated error and the simplest tree. 
+
+#Function printcp()-> pick the optimal complexity parameter and number of tree splits. 
+
+#explanation of naswer-> The lowest 'xerror' is 0.82569, however since 0.82569+0.05504>0.82569 we select a simpler tree. 
+
+printcp(model)
+#We can also prune our tree graphically with the plotcp() function
+plotcp(model)
+
+#To prume model we use prune() function. 
+prune_model<-prune(model,cp=.034)
+plot(prune_model,main="Model 1")
+text(prune_model)
+
+prune_model_two<-prune(model,cp=.0214)
+plot(prune_model_two,main='Model 2')
+text(prune_model_two)
+
+#Important Question to ask: 
+#Do you want to have a simpler tree to avoid overfitting?
+#Or
+#Do you want to have a more complex tree to avoid missclassification error?
+
+
 
 
 
