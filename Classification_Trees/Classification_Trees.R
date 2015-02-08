@@ -1,15 +1,16 @@
 setwd("C:/Users/Alfonso/Desktop/JOM/Introduction_Machine_Learnin_TeamLeada/Classification_Trees")
-
+setwd("/Users/josemiguelarrieta/Documents/Introduction_ML_Leada/Classification_Trees")
 ##############################
 #Supervised Machine Learning##
 ##############################
 # search for patterns in labeled data to produce a model to make predictions 
 #on future unlabeled data.
 
+
 #Data-> Flag data taken from UC Irvine Machine Learning database.
 
 data<-read.csv('flag_data.csv',header=T)
-
+???
 #Split Data 
 traindata <- data[1:150, ]
 testdata <- data[151:194, -6]
