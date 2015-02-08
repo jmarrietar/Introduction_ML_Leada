@@ -1,5 +1,5 @@
 setwd("C:/Users/Alfonso/Desktop/JOM/Introduction_Machine_Learnin_TeamLeada/Data_Wrangling_II")
-
+setwd("/Users/josemiguelarrieta/Documents/Introduction_ML_Leada/Data_Wrangling_II")
 #Data: Flag DataBase from UC irvine Machine Learning database. 
 data<-read.csv('flag_data.csv',header=T,stringsAsFactors=F)
 
