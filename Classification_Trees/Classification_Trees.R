@@ -10,7 +10,7 @@ setwd("/Users/josemiguelarrieta/Documents/Introduction_ML_Leada/Classification_T
 #Data-> Flag data taken from UC Irvine Machine Learning database.
 
 data<-read.csv('flag_data.csv',header=T)
-???
+
 #Split Data 
 traindata <- data[1:150, ]
 testdata <- data[151:194, -6]
