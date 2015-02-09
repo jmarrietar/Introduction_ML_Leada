@@ -25,3 +25,20 @@ sum(is.na(train_data$Age))
 #EXPLORATORY ANALYSIS#
 ######################
 
+#Bar Plots
+#Aggregation (Group by) 
+#Survivers by Class
+class_survivers<-aggregate(train_data$Survived, by=list(train_data$Pclass), FUN=sum)
+class_survivers
+barplot(class_survivers$x,names.arg=c("high", "middle", "low"),xlab="class",ylab="survivers")
+#Survivers by Gender
+gender_survivers<-aggregate(train_data$Survived, by=list(train_data$Sex), FUN=sum)
+gender_survivers
+barplot(gender_survivers$x,names.arg=c("female","male"),xlab="class",ylab="survivers")
+
+#Scatterplots 
+boxplot(Age~Survived,data=train_data,col="red")
+boxplot(Fare~Survived,data=train_data,col="red")
+
+
+
